@@ -9,8 +9,6 @@ var Friend = require("../data/friends.js");
 
 
 
-
-
 // Routes
 // =============================================================
 module.exports = function(app) {
@@ -44,12 +42,35 @@ module.exports = function(app) {
         q10: Friend.q10
     });
 
+    console.log("Welcome New User:\n---------------------------------")
     console.log(newfriend);
+
+   
+      var lowestTotalDifference = null;
+      var bestMatch = null;
+      for( var i = 0; i < Friend.Friends.length; i++ ) {
+          var currentFriend = Friends[i];
+          var currentFriendScores = currentFriend.scores;
+          var totalDifference = 0;
+          for( var j = 0; j < currentFriendScores.length; j++){
+                 
+                  var difference = currentFriendScores[j] - newFriend['scores[]'][j];
+                  totalDifference += Math.abs(difference);
+          }
+          if (totalDifference < lowestTotalDifference || lowestTotalDifference === null){
+              lowestTotalDifference = totalDifference
+              bestMatch = currentFriend
+          }
+      }
+   
+      res.send(bestMatch);
+ 
 
     Friends.push(newfriend);
   
     res.json(newfriend);
     
   });
+
     res.status(204).end();
   };
