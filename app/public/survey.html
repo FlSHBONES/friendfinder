@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>FriendFinder</title>
+        <style type="text/css">
+                button,
+                div,
+                form,
+                input {
+                        margin: 10px;
+                }
+        </style>
+</head>
+
+<body>
+        <div class="Header">
+                <h1>Find a Friend! </h1>
+                <!-- Insert Start Button Here -->
+                <button id=button>Start Questionaire</button>
+                <!-- Tie an if statement to the click, if clicked show div -->
+                <!-- On Submit, jquery hide questions div and routes to page with results -->
+                
+
+                <div id=show-number>
+                        <h2>Answer the questions below to find individuals that share your sentiments on similar matters.</h2>
+                </div>
+                <div id=results></div>
+        </div>
+
+        <!-- in this div, have all the questions already written to the page.   -->
+        <div id="the goods"></div>
+
+        <div id="questions">
+                <p>"I read books, even somewhat regularly."
+                        <br>
+                        <input type="radio" name="q1" class="a"> "1"
+                        <br>
+                        <input type="radio" name="q1" class="a"> "2"
+                        <br>
+                        <input type="radio" name="q1" class="a"> "3"
+                        <br>
+                        <input type="radio" name="q1" class="a"> "4"
+                        <br>
+                        <input type="radio" name="q1" class="a"> "5 (Strongly Agree)
+                </p>
+                <br>
+                <p>2."The scientific method means something to me."
+                        <br>
+                        <input type="radio" name="q2" class="a"> "1"
+                        <br>
+                        <input type="radio" name="q2" class="b"> "2"
+                        <br>
+                        <input type="radio" name="q2" class="b"> "3"
+                        <br>
+                        <input type="radio" name="q2" class="b"> "4"
+                        <br>
+                        <input type="radio" name="q2" class="b"> "5 (Strongly Agree)
+                </p>
+                <br>
+                <p>3."I can tell you the difference between component cables and an HDMI cable with confidence."
+                        <br>
+                        <input type="radio" name="q3" class="a"> "1"
+                        <br>
+                        <input type="radio" name="q3" class="b"> "2"
+                        <br>
+                        <input type="radio" name="q3" class="b"> "3"
+                        <br>
+                        <input type="radio" name="q3" class="b"> "4"
+                        <br>
+                        <input type="radio" name="q3" class="b"> "5 (Strongly Agree)
+                </p>
+                <br>
+                <p>4. "Professional American football, that sure is for me."
+                        <br>
+                        <input type="radio" name="q4" class="a"> "1"
+                        <br>
+                        <input type="radio" name="q4" class="b"> "2"
+                        <br>
+                        <input type="radio" name="q4" class="b"> "3"
+                        <br>
+                        <input type="radio" name="q4" class="b"> "4"
+                        <br>
+                        <input type="radio" name="q4" class="b"> "5 (Strongly Agree)
+                </p>
+                <br>
+                <p>5. "Puppies are clearly the optimal pet type.""
+                        <br>
+                        <input type="radio" name="q5" class="a"> "1"
+                        <br>
+                        <input type="radio" name="q5" class="b"> "2"
+                        <br>
+                        <input type="radio" name="q5" class="b"> "3"
+                        <br>
+                        <input type="radio" name="q5" class="b"> "4"
+                        <br>
+                        <input type="radio" name="q5" class="b"> "5 (Strongly Agree)
+                </p>
+                <br>
+                <p>6. "Please, never turn off country radio.  It powers my soul.""
+                        <br>
+                        <input type="radio" name="q6" class="a"> "1"
+                        <br>
+                        <input type="radio" name="q6" class="b"> "2"
+                        <br>
+                        <input type="radio" name="q6" class="b"> "3"
+                        <br>
+                        <input type="radio" name="q6" class="b"> "4"
+                        <br>
+                        <input type="radio" name="q6" class="b"> "5 (Strongly Agree)
+                </p>
+                <br>
+                <p>7. "It is my moral imperative, as a citizen of a nation, to exercise my right to vote if I am fortunate enough to have it."
+                        <br>
+                        <input type="radio" name="q7" class="a"> "1"
+                        <br>
+                        <input type="radio" name="q7" class="b"> "2"
+                        <br>
+                        <input type="radio" name="q7" class="b"> "3"
+                        <br>
+                        <input type="radio" name="q7" class="b"> "4"
+                        <br>
+                        <input type="radio" name="q7" class="b"> "5 (Strongly Agree)
+                </p>
+                <br>
+                <p>8. "Pluto IS a planet, regardless of what anyone says!""
+                        <br>
+                        <input type="radio" name="q8" class="a"> "1"
+                        <br>
+                        <input type="radio" name="q8" class="b"> "2"
+                        <br>
+                        <input type="radio" name="q8" class="b"> "3"
+                        <br>
+                        <input type="radio" name="q8" class="b"> "4"
+                        <br>
+                        <input type="radio" name="q8" class="b"> "5 (Strongly Agree)
+                </p>
+                <br>
+                <p>9. "Gift cards are totally a viable gift."
+                        <br>
+                        <input type="radio" name="q9" class="a"> "1"
+                        <br>
+                        <input type="radio" name="q9" class="b"> "2"
+                        <br>
+                        <input type="radio" name="q9" class="b"> "3"
+                        <br>
+                        <input type="radio" name="q9" class="b"> "4"
+                        <br>
+                        <input type="radio" name="q9" class="b"> "5 (Strongly Agree)
+                </p>
+                <br>
+                <p>10. "It is important to love your partner more than your children."
+                        <br>
+                        <input type="radio" name="q10" class="a"> "1"
+                        <br>
+                        <input type="radio" name="q10" class="b"> "2"
+                        <br>
+                        <input type="radio" name="q10" class="b"> "3"
+                        <br>
+                        <input type="radio" name="q10" class="b"> "4"
+                        <br>
+                        <input type="radio" name="q10" class="b"> "5 (Strongly Agree)
+                </p>
+                <br>
+                
+
+        </div>
+
+
+
+
+</body>
