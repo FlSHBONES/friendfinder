@@ -1,14 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <title>FriendFinder | Home</title>
-    
+    <title>FriendFinder</title>
+    <style type="text/css">
+        button,
+        div,
+        form,
+        input {
+            margin: 10px;
+        }
+    </style>
 </head>
+
+
+<!-- need to require functions from Survey.js page -->
 <body>
-    
+    <div class="Header">
+        <h1>Find a Friend! </h1>
+        <!-- Insert Start Button Here -->
+        <button id=button>Start Questionaire</button>
+        <!-- Tie an if statement to the click, if clicked show div -->
+        <!-- On Submit, jquery hide questions div and routes to page with results -->
+        <!-- At Timer end, have route to new page / Proper use of the timed trivia quiz assignment to replace it on the portfolio!-->
+
+        <div id=show-number>
+            <h2>Answer the questions below to find individuals that share your sentiments on the below statements.</h2>
+
+            <h2><strong>You only have One minute. Reflect on the statement, choose how much you agree with it on a
+                    numerical scale, then move on!<strong></h2>
+        </div>
+        <div id=results></div>
+    </div>
+
+    <!-- in this div, have all the questions already written to the page.   -->
+    <div id="the goods"></div>
 </body>
+
+
+
+<script>
+    var BestMatch = require("../routing/apiRoutes.js");
+    // removed functions from survey.html - difficult to export functions from an HTML and have them work (if even doable).
+</script>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+    //the variables
+    var correct = 0;
+    var total = 22;
+    var timer = 0;
+    var intervalID;
+    //the functions
+
+
+    function timerrun() {
+        timer = 60;
+        showhide();
+        clearInterval(intervalID);
+        intervalID = setInterval(decrement, 1000);
+        $(".a").on("click", function () {
+            //       Tie feedback from each answer to the newfriend array
+        })
+    };
+
+    function decrement() {
+        timer--;
+        $("#show-number").html("<h2>" + "Seconds Remaining: " + timer + "</h2>");
+        //  Once number hits zero...
+        if (timer === 0) {
+            stop();
+            $('#results').html("<p>" + "You would be best friends with: " + "<strong>" + BestMatch + "<strong>" + "!" + "<p>");
+
+            $('button').html("Click Here for Details");
+            newPage();
+            // need to add function that routes to ../api/apiRoutes to page with best match info.
+
+
+        }
+    };
+
+    function showhide() {
+        var x = document.getElementById("questions");
+        if (timer !== 0) {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+
+
+    //  The stop function
+    function stop() {
+
+        //  Clears our intervalId
+        //  We just pass the name of the interval
+        //  to the clearInterval function.
+        clearInterval(intervalID);
+    }
+
+    function restart() {
+        $('#button').click(function () {
+            location.reload();
+        });
+    };
+
+    //run the functions     
+    showhide();
+    $("button").on("click", function () {
+        timerrun();
+        restart();
+        console.log(timer);
+        console.log(correct);
+    });
+</script>
+
 </html>

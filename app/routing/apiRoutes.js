@@ -54,7 +54,7 @@ module.exports = function(app) {
           var totalDifference = 0;
           for( var j = 0; j < currentFriendScores.length; j++){
                  
-                  var difference = currentFriendScores[j] - newFriend['scores[]'][j];
+                  var difference = currentFriendScores[j] - newfriend['scores[]'][j];
                   totalDifference += Math.abs(difference);
           }
           if (totalDifference < lowestTotalDifference || lowestTotalDifference === null){
@@ -69,8 +69,12 @@ module.exports = function(app) {
     Friends.push(newfriend);
   
     res.json(newfriend);
+    res.json(bestMatch);
     
   });
 
     res.status(204).end();
   };
+
+
+  module.exports = bestMatch;

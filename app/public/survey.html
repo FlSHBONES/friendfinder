@@ -17,23 +17,7 @@
 </head>
 
 <body>
-        <div class="Header">
-                <h1>Find a Friend! </h1>
-                <!-- Insert Start Button Here -->
-                <button id=button>Start Questionaire</button>
-                <!-- Tie an if statement to the click, if clicked show div -->
-                <!-- On Submit, jquery hide questions div and routes to page with results -->
-                
-
-                <div id=show-number>
-                        <h2>Answer the questions below to find individuals that share your sentiments on similar matters.</h2>
-                </div>
-                <div id=results></div>
-        </div>
-
-        <!-- in this div, have all the questions already written to the page.   -->
-        <div id="the goods"></div>
-
+      
         <div id="questions">
                 <p>"I read books, even somewhat regularly."
                         <br>
@@ -171,5 +155,92 @@
 
 
 
-
+<script>
+        var BestMatch = require("../routing/apiRoutes.js");
+</script>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+        //the variables
+        var timer = 0;
+        var intervalID;
+        //the functions
+
+
+        function timerrun() {
+                timer = 60;
+                showhide();
+                clearInterval(intervalID);
+                intervalID = setInterval(decrement, 1000);
+                $(".a").on("click", function () {
+                //       Tie feedback from each answer to the newfriend array
+                })
+        };
+
+        function decrement() {
+                timer--;
+                $("#show-number").html("<h2>" + "Seconds Remaining: " + timer + "</h2>");
+                //  Once number hits zero...
+                if (timer === 0) {
+                        stop();
+                        $('#results').html("<p>" + "You would be best friends with: " + "<strong>"+BestMatch+"<strong>" +"!"+"<p>");
+                        
+                        $('button').html("Click Here for Details");
+                        newPage();
+                        // need to add function that routes to ../api/apiRoutes to page with best match info.
+
+
+                }
+        };
+
+        function showhide() {
+                var x = document.getElementById("questions");
+                if (timer !== 0) {
+                        x.style.display = "block";
+                } else {
+                        x.style.display = "none";
+                }
+        }
+
+
+        //  The stop function
+        function stop() {
+
+                //  Clears our intervalId
+                //  We just pass the name of the interval
+                //  to the clearInterval function.
+                clearInterval(intervalID);
+        }
+
+function restart(){
+        $('#button').click(function() {
+        location.reload();
+});
+};
+
+        //run the functions     
+        showhide();
+        $("button").on("click", function () {
+                timerrun();
+                restart();
+                console.log(timer);
+                console.log(correct);
+        });
+
+var showhide = showhide();
+var timerun = timerrun();
+var decrement = decrement();
+var stop = stop();
+var restart = restart();
+
+
+module.exports = showhide, timerun, decrement, stop, restart;
+
+//Sharing functions across multiple pages allows me to identify where each fnction might work optimally.  Recommend deleting upon completion
+
+
+
+</script>
+
+</html>
